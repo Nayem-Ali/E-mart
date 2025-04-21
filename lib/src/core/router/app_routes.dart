@@ -1,5 +1,5 @@
 import 'package:e_mart/src/core/router/routes_name.dart';
-import 'package:e_mart/src/features/explore_products/presentation/view/home_screen.dart';
+import 'package:e_mart/src/features/products/presentation/view/home_screen.dart';
 import 'package:e_mart/src/features/shared/presentation/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
