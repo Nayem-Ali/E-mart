@@ -11,6 +11,7 @@ Future<void> setupService() async {
     await hiveDbConfig.init();
     return hiveDbConfig;
   });
+  await sl.isReady<HiveDbConfig>();
   sl.registerSingleton<DioClient>(DioClient(Dio()));
   await sl.allReady();
 }
