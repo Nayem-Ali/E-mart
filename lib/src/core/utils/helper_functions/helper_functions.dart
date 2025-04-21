@@ -27,4 +27,12 @@ class HelperFunctions{
     });
   }
 
+  static List<String> sortingOptions() {
+    return [
+      "Price - High to Low",
+      "Price - Low to High",
+      "Ratting",
+    ];
+  }
+
 }

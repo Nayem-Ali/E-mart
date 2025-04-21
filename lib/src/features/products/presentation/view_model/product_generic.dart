@@ -6,26 +6,30 @@ class ProductGeneric {
   int? skip;
   List<Product>? products;
   List<CategoryModel>? categories;
-  bool? hasMoreProducts;
+  bool? doesSearching;
+  bool? doesLoading;
 
   ProductGeneric({
     this.products = const [],
     this.categories = const [],
     this.skip = 0,
-    this.hasMoreProducts = false,
+    this.doesSearching = false,
+    this.doesLoading = false,
   });
 
   ProductGeneric update({
     int? skip,
     List<Product>? products,
     List<CategoryModel>? categories,
-    bool? hasMoreProducts,
+    bool? doesSearching,
+    bool? doesLoading,
   }) {
     return ProductGeneric(
       skip: skip ?? this.skip,
       categories: categories ?? this.categories,
       products: products ?? this.products,
-      hasMoreProducts: hasMoreProducts ?? this.hasMoreProducts,
+      doesSearching: doesSearching ?? this.doesSearching,
+      doesLoading: doesLoading ?? this.doesLoading,
     );
   }
 }

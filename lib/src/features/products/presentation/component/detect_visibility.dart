@@ -13,7 +13,7 @@ class _DetectVisibilityState extends ConsumerState<DetectVisibility> {
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
-      key: const Key("Load More Images"),
+      key: const Key("Load More Products"),
       onVisibilityChanged: (info) async {
         double visibleFractionPercentage = info.visibleFraction * 100;
         if(visibleFractionPercentage >= 20){
