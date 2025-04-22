@@ -59,8 +59,8 @@ class _ProductDetailsScreenState extends ConsumerState<ProductDetailsScreen> {
                         // width: context.size?.width,
                         placeholder:
                             (context, url) => Shimmer.fromColors(
-                              baseColor: Colors.grey[300]!,
-                              highlightColor: Colors.grey[100]!,
+                              baseColor: Colors.grey.shade300,
+                              highlightColor: Colors.grey.shade100,
                               child: Container(
                                 color: Colors.white,
                                 width: double.infinity,
@@ -158,7 +158,8 @@ class _ProductDetailsScreenState extends ConsumerState<ProductDetailsScreen> {
               ),
             if (productController.categorizedProducts!.isNotEmpty)
               // Text("Similar Products ${[productController.categorizedProducts?.length]}"),
-              SizedBox(
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 8),
                 height: 300,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,

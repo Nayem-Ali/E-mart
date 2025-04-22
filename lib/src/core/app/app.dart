@@ -1,5 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:e_mart/src/core/router/app_routes.dart';
+import 'package:e_mart/src/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 class App extends ConsumerStatefulWidget {
@@ -20,6 +21,7 @@ class _AppState extends ConsumerState<App> {
       routeInformationParser: router.routeInformationParser,
       routeInformationProvider: router.routeInformationProvider,
       builder: BotToastInit(),
+      theme: AppTheme.lightTheme(),
     );
   }
 }

@@ -10,7 +10,7 @@ class ProductGridShimmer extends StatelessWidget {
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.all(8),
-      itemCount: 8,
+      itemCount: 6,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 8,
@@ -30,7 +30,7 @@ class ProductGridShimmer extends StatelessWidget {
                   height: 120,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: Colors.grey.shade300,
                     borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
                   ),
                 ),
@@ -38,14 +38,14 @@ class ProductGridShimmer extends StatelessWidget {
                 Container(
                   height: 12,
                   width: 100,
-                  color: Colors.grey[300],
+                  color: Colors.grey.shade300,
                   margin: const EdgeInsets.symmetric(horizontal: 8),
                 ),
                 const SizedBox(height: 8),
                 Container(
                   height: 12,
                   width: 60,
-                  color: Colors.grey[300],
+                  color: Colors.grey.shade300,
                   margin: const EdgeInsets.symmetric(horizontal: 8),
                 ),
               ],
