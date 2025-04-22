@@ -8,25 +8,30 @@ class PriceTag extends StatelessWidget {
   Widget build(BuildContext context) {
     return product.discountPercentage != 0 ? RichText(
       text: TextSpan(
-        style: Theme.of(context).textTheme.bodyMedium,
+        style: Theme.of(context).textTheme.bodyLarge,
         children: [
           TextSpan(
             text: "\$${HelperFunctions.calculateDiscount(product: product)} ",
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Theme.of(context).colorScheme.primary,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: Theme.of(context).colorScheme.shadow,
               fontWeight: FontWeight.bold,
             ),
           ),
           TextSpan(
             text: "\$${product.price}",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               decoration: TextDecoration.lineThrough,
+              decorationColor: Theme.of(context).colorScheme.shadow.withAlpha(95),
               decorationThickness: 2,
+              color: Theme.of(context).colorScheme.shadow.withAlpha(95)
             ),
           ),
           TextSpan(
-            text: " ${product.discountPercentage}% off",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(),
+            text: " ${product.discountPercentage}% OFF",
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: Theme.of(context).colorScheme.secondary,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ],
       ),

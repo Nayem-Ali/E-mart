@@ -11,10 +11,10 @@ class InfoChip extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
+        color: Theme.of(context).colorScheme.primaryContainer.withAlpha(90),
         borderRadius: BorderRadius.circular(5)
       ),
-      child: Text("$label: $value"),
+      child: Text("$label: $value", style: Theme.of(context).textTheme.labelMedium,),
     );
   }
 }
