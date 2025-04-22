@@ -19,8 +19,8 @@ Future<void> setupService() async {
   });
   await sl.isReady<HiveDbConfig>();
   sl.registerSingleton<DioClient>(DioClient(Dio()));
-  sl.registerSingleton<ProductRepositoryImpl>(ProductRepositoryImpl());
-  sl.registerSingleton<FetchAllProductsUseCase>(FetchAllProductsUseCase());
+  // sl.registerSingleton<ProductRepositoryImpl>(ProductRepositoryImpl());
+  // sl.registerSingleton<FetchAllProductsUseCase>(FetchAllProductsUseCase());
   sl.registerSingleton<FetchAllCategoriesUseCase>(FetchAllCategoriesUseCase());
   sl.registerSingleton<FetchCategorizedProductUseCase>(FetchCategorizedProductUseCase());
   sl.registerSingleton<SearchProductUseCase>(SearchProductUseCase());

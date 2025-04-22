@@ -6,10 +6,12 @@ import 'package:e_mart/src/features/products/domain/repository/product_repositor
 import 'package:e_mart/src/features/shared/domain/use_case/base_use_case.dart';
 
 class FetchAllProductsUseCase extends UseCase<List<Product>, ProductDto> {
-  final ProductRepository _repositoryImpl = sl.get<ProductRepositoryImpl>();
+  ProductRepository repositoryImpl;
+
+  FetchAllProductsUseCase({required this.repositoryImpl});
 
   @override
   Future<List<Product>> call(ProductDto productDto) async {
-    return await _repositoryImpl.fetchAllProducts(productDto: productDto);
+    return await repositoryImpl.fetchAllProducts(productDto: productDto);
   }
 }
