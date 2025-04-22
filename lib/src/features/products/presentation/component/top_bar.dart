@@ -1,8 +1,6 @@
 import 'package:e_mart/src/core/constants/app_icons_path.dart';
 import 'package:e_mart/src/core/utils/helper_functions/helper_functions.dart';
-import 'package:e_mart/src/core/utils/logger/logger.dart';
 import 'package:e_mart/src/features/products/presentation/view_model/product_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -28,7 +26,7 @@ class _TopBarState extends ConsumerState<TopBar> {
               ref.read(productProvider.notifier).searchProduct(query: value.trim());
             },
             onChanged: (value) {
-              if(value.trim().isEmpty){
+              if(value.isEmpty){
                 ref.read(productProvider.notifier).fetchAllProducts();
               }
             },

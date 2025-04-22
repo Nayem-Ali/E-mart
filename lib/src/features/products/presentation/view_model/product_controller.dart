@@ -44,8 +44,7 @@ class ProductController extends StateNotifier<ProductGeneric> {
     state.skip = 0;
     state = state.update(doesLoading: true, skip: state.skip);
     List<Product> products = await _searchProductUseCase.call(query);
-    state.products = products;
-    state = state.update(products: state.products, doesSearching: true, doesLoading: false);
+    state = state.update(products: products, doesSearching: true, doesLoading: false);
   }
 
   void sortProducts({required String option}) {
@@ -61,5 +60,10 @@ class ProductController extends StateNotifier<ProductGeneric> {
         break;
     }
     state = state.update(products: state.products);
+  }
+
+  Future<void> fetchCategorizedProducts({required String categoryName}) async {
+    List<Product> categorizedProducts = await _categorizedProductUseCase.call(categoryName);
+    state = state.update(categorizedProducts: categorizedProducts);
   }
 }

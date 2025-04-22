@@ -1,4 +1,3 @@
-import 'package:bot_toast/bot_toast.dart';
 import 'package:dio/dio.dart';
 import 'package:e_mart/src/core/dl/dependency_injection.dart';
 import 'package:e_mart/src/core/network/api_endpoints.dart';

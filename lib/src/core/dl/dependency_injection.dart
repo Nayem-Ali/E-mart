@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:e_mart/src/core/database/hive/dao/favourite_product_dao.dart';
 import 'package:e_mart/src/core/database/hive/hive_db_config.dart';
 import 'package:e_mart/src/core/network/dio_client.dart';
 import 'package:e_mart/src/features/products/data/repository/products_repository_impl.dart';
@@ -23,5 +24,6 @@ Future<void> setupService() async {
   sl.registerSingleton<FetchAllCategoriesUseCase>(FetchAllCategoriesUseCase());
   sl.registerSingleton<FetchCategorizedProductUseCase>(FetchCategorizedProductUseCase());
   sl.registerSingleton<SearchProductUseCase>(SearchProductUseCase());
+  sl.registerSingleton<FavouriteProductDao>(FavouriteProductDao());
   await sl.allReady();
 }

@@ -1,7 +1,6 @@
 import 'dart:async';
-
-import 'package:bot_toast/bot_toast.dart';
 import 'package:e_mart/src/core/constants/app_images_path.dart';
+import 'package:e_mart/src/core/router/routes_name.dart';
 import 'package:e_mart/src/core/utils/helper_functions/helper_functions.dart';
 import 'package:e_mart/src/features/products/data/model/product.dart';
 import 'package:e_mart/src/features/products/presentation/component/detect_visibility.dart';
@@ -12,7 +11,7 @@ import 'package:e_mart/src/features/products/presentation/view_model/product_con
 import 'package:e_mart/src/features/products/presentation/view_model/product_generic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -26,8 +25,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   void initState() {
-    _internetConnectivityStream = HelperFunctions.internetConnectivityChecker();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      _internetConnectivityStream = HelperFunctions.internetConnectivityChecker();
       await ref.read(productProvider.notifier).fetchAllProducts();
     });
     super.initState();
@@ -56,22 +55,35 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ? ProductGridShimmer()
                   : Column(
                     children: [
+                      if (productController.doesSearching!)
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 12.0),
+                            child: Text(
+                              "${productController.products!.length} Items",
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                          ),
+                        ),
                       if (productController.products!.isNotEmpty)
                         GridView.builder(
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
                           padding: const EdgeInsets.all(8),
+
                           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2, // 2 columns
                             crossAxisSpacing: 8,
                             mainAxisSpacing: 8,
                             childAspectRatio: 0.75,
                           ),
-
                           itemCount: productController.products?.length ?? 0,
                           itemBuilder: (context, index) {
                             Product product = productController.products![index];
-                            return ProductCard(product: product);
+                            return InkWell(
+                              onTap: () => context.pushNamed(RoutesName.product, extra: product),
+                              child: ProductCard(product: product),
+                            );
                           },
                         ),
                       if (productController.doesSearching == false &&
