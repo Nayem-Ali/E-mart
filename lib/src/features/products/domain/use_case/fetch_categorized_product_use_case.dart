@@ -5,11 +5,14 @@ import 'package:e_mart/src/features/products/domain/repository/product_repositor
 import 'package:e_mart/src/features/shared/domain/use_case/base_use_case.dart';
 
 class FetchCategorizedProductUseCase extends UseCase<List<Product>, String> {
-  final ProductRepository _repositoryImpl = sl.get<ProductRepositoryImpl>();
+  // final ProductRepository _repositoryImpl = sl.get<ProductRepositoryImpl>();
+  final ProductRepository repositoryImpl;
+
+  FetchCategorizedProductUseCase({required this.repositoryImpl});
 
   @override
   Future<List<Product>> call(String categoryName) async {
-    List<Product> categorizedProducts = await _repositoryImpl.fetchProductsByCategory(
+    List<Product> categorizedProducts = await repositoryImpl.fetchProductsByCategory(
       categoryName: categoryName,
     );
     return categorizedProducts;

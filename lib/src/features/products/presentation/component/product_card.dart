@@ -65,7 +65,7 @@ class _ProductCardState extends State<ProductCard> {
                     ),
                     child: InkWell(
                       onTap: () async {
-                        if (_doesFavourite.value) {
+                        if (_doesFavourite.value)  {
                           await _favouriteDao.removeFromFavourite(product: widget.product);
                         } else {
                           await _favouriteDao.addToFavourite(product: widget.product);

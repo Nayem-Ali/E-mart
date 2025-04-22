@@ -9,7 +9,7 @@ class DioClient {
   final Dio dio;
 
   DioClient(this.dio) {
-    dio..options = BaseOptions(baseUrl: ApiEndpoints.baseUrl, headers: commonHeader)
-    ..interceptors.add(CachingInterceptor());
+    dio.options = BaseOptions(baseUrl: ApiEndpoints.baseUrl, headers: commonHeader);
+    // ..interceptors.add(CachingInterceptor());
   }
 }

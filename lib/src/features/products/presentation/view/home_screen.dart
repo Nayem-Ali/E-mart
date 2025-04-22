@@ -27,7 +27,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       _internetConnectivityStream = HelperFunctions.internetConnectivityChecker();
-      await ref.read(productProvider.notifier).fetchAllProducts();
+      // await ref.read(productProvider.notifier).fetchAllProducts();
     });
     super.initState();
   }

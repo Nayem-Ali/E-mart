@@ -7,7 +7,9 @@ import 'package:e_mart/src/features/products/data/model/category.dart';
 import 'package:e_mart/src/features/products/data/model/product.dart';
 
 class ProductRemoteDataSource {
-  DioClient dioClient = sl.get<DioClient>();
+  DioClient dioClient;
+
+  ProductRemoteDataSource({required this.dioClient});
 
   Future<List<Product>> fetchAllProducts({required int limit, required int skip}) async {
     List<Product> allProducts = [];

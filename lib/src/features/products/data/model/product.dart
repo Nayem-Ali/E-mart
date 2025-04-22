@@ -1,4 +1,6 @@
-class Product {
+import 'package:equatable/equatable.dart';
+
+class Product extends Equatable {
   final int id;
   final String title;
   final String description;
@@ -102,6 +104,10 @@ class Product {
       'thumbnail': thumbnail,
     };
   }
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [id];
 }
 
 class Dimensions {
